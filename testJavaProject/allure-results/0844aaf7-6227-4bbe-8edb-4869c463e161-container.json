@@ -1,0 +1,1 @@
+{"uuid":"0844aaf7-6227-4bbe-8edb-4869c463e161","name":"tests.TestReturningPetInventories","children":["abc7dcc6-8f0c-4f2b-bb6e-1c9505445a79"],"befores":[{"name":"setUps","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1741807977650,"stop":1741807977914}],"afters":[],"start":1741807977635,"stop":1741807994093}
