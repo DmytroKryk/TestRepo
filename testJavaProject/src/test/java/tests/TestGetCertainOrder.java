@@ -6,31 +6,15 @@ import utils.OrderDetails;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class TestGetCertainOrder extends TestBase {
     final int idToGet = 8;
-    public static String today = "";
 
     @BeforeMethod
     public void createOrder() {
         try {
             OrderDetails orderData = new OrderDetails();
-            orderData.orderDetails(idToGet);
-
-            LocalDateTime todayDate = LocalDateTime.now();
-            DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            today = todayDate.format(myFormat);
-
-            String request = "{\n" +
-                    "  \"id\": " + orderData.getId() + ",\n" +
-                    "  \"petId\": 1,\n" +
-                    "  \"quantity\": 1,\n" +
-                    "  \"shipDate\": \""+today+"T00:00:00.123Z\",\n" +
-                    "  \"status\": \"placed\",\n" +
-                    "  \"complete\": true\n" +
-                    "}";
+            String request = orderData.requestConstructor(idToGet);
 
             Response response = sendPostRequest("/store/order", request);
             Assert.assertEquals(response.getStatusCode(), 200);
@@ -44,7 +28,7 @@ public class TestGetCertainOrder extends TestBase {
     @Test(priority = 4)
     public void testGetOrderById() {
 
-        Response response = sendGetRequest("/store/order/"+idToGet+"");
+        Response response = sendGetRequest("/store/order/"+idToGet);
         Assert.assertEquals(response.getStatusCode(), 200);
 
         Assert.assertTrue(response.getBody().asString().contains("id"));

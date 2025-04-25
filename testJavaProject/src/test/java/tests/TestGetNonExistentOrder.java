@@ -12,9 +12,9 @@ public class TestGetNonExistentOrder extends TestBase {
     public void testGetOrderById() {
 
         OrderDetails orderData = new OrderDetails();
-        orderData.orderDetails(0, 1, 1, "placed");
+        orderData.requestConstructor(0, 1, 1, "placed");
 
-        Response response = sendGetRequest("/store/order/"+orderData.getId()+"");
+        Response response = sendGetRequest("/store/order/"+orderData.getId());
         Assert.assertEquals(response.getStatusCode(), 404);
         Assert.assertEquals(response.jsonPath().get("type"), "error");
         Assert.assertEquals(response.jsonPath().get("message"), "Order not found");

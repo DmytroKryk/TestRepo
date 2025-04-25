@@ -23,7 +23,7 @@
     OrderDetails - to keep the information about the order;
     PropertyReader - to read the properties and set up BaseUrl.
 
-    Don't forget about testng.xml - with the list of TestCases.
+    Remember about testng.xml - with the list of TestCases.
 
 # Running the tests
 - run testng.xml in IDE

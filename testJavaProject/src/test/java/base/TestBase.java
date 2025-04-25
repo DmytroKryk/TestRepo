@@ -1,7 +1,6 @@
 package base;
 
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeClass;
@@ -10,11 +9,11 @@ import java.util.Map;
 import static utils.PropertyReader.getBaseUrl;
 
 
-public class TestBase {
+public abstract class TestBase {
     protected RequestSpecification request;
 
     @BeforeClass
-    public void setUps() {
+    public void setUp() {
 
 
         RestAssured.baseURI = getBaseUrl();
@@ -29,7 +28,7 @@ public class TestBase {
     }
 
     protected Response sendGetRequest(String endpoint) {
-        return given()
+        return request
                 .get(RestAssured.baseURI + endpoint)
                 .then()
                 .log().all()
@@ -38,14 +37,14 @@ public class TestBase {
 
     protected Response sendPostRequest(String endpoint, String payload) {
         return request.body(payload)
-                .post(endpoint)
+                .post(RestAssured.baseURI + endpoint)
                 .then()
                 .log().all()
                 .extract().response();
     }
 
     protected Response sendDeleteRequest(String endpoint) {
-        return request.delete(endpoint)
+        return request.delete(RestAssured.baseURI + endpoint)
                 .then()
                 .log().all()
                 .extract().response();

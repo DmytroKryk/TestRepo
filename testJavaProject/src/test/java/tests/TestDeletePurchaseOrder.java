@@ -17,16 +17,7 @@ public class TestDeletePurchaseOrder extends TestBase {
     public void createOrder() {
         try {
             OrderDetails orderData = new OrderDetails();
-            orderData.orderDetails(idToDelete, 1, 1, "placed");
-
-            String request = "{\n" +
-                    "  \"id\": " + orderData.getId() + ",\n" +
-                    "  \"petId\": " + orderData.getPetId() + ",\n" +
-                    "  \"quantity\": " + orderData.getQuantity() + ",\n" +
-                    "  \"shipDate\": \"2025-03-10T18:14:24.742Z\",\n" +
-                    "  \"status\": \"" + orderData.getStatus() + "\",\n" +
-                    "  \"complete\": true\n" +
-                    "}";
+            String request = orderData.requestConstructor(idToDelete, 1, 1, "placed");
 
             Response response = sendPostRequest("/store/order", request);
             Assert.assertEquals(response.getStatusCode(), 200);
@@ -40,7 +31,7 @@ public class TestDeletePurchaseOrder extends TestBase {
     @Test(priority = 6)
     public void testDeletePurchasedOrderById() {
 
-        Response response = sendDeleteRequest("/store/order/"+idToDelete+"");
+        Response response = sendDeleteRequest("/store/order/"+idToDelete);
         softAssert.assertEquals(response.getStatusCode(), 200);
         softAssert.assertEquals(response.jsonPath().get("message"), String.valueOf(idToDelete));
 
