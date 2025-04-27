@@ -1,0 +1,10 @@
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/base/TestBase.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestDeleteNotPurchaseOrder.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestDeletePurchaseOrder.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestGetCertainOrder.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestGetNonExistentOrder.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestPlaceAnOrder.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestPlaceTheOrderAlreadyExists.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/tests/TestReturningPetInventories.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/utils/OrderDetails.java
+/Users/dmytro/JavaProject/testJavaProject/src/test/java/utils/PropertyReader.java

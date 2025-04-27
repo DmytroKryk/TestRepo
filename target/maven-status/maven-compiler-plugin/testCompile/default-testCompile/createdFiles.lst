@@ -1,0 +1,10 @@
+tests/TestPlaceAnOrder.class
+tests/TestReturningPetInventories.class
+utils/OrderDetails.class
+base/TestBase.class
+tests/TestDeleteNotPurchaseOrder.class
+utils/PropertyReader.class
+tests/TestGetCertainOrder.class
+tests/TestPlaceTheOrderAlreadyExists.class
+tests/TestGetNonExistentOrder.class
+tests/TestDeletePurchaseOrder.class
