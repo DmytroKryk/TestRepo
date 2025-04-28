@@ -22,7 +22,7 @@ public class TestDeletePurchaseOrder extends TestBase {
             Response response = sendPostRequest("/store/order", request);
             Assert.assertEquals(response.getStatusCode(), 200);
 
-            Thread.sleep(6000);//wait until test data posted
+            Thread.sleep(4000);//wait until test data posted
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

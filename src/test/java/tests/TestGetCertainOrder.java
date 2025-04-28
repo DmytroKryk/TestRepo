@@ -19,7 +19,7 @@ public class TestGetCertainOrder extends TestBase {
             Response response = sendPostRequest("/store/order", request);
             Assert.assertEquals(response.getStatusCode(), 200);
 
-            Thread.sleep(3000);//need to wait until test data posted
+            Thread.sleep(4000);//need to wait until test data posted
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
